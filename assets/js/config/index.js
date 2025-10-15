@@ -19,7 +19,7 @@ export const APP_CONFIG = {
     // Configurações de animação
     animation: {
         scrollOffset: 100,
-        debounceDelay: 10
+        scrollThrottleMs: 100
     },
     
     // Configurações do tema

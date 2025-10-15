@@ -48,3 +48,21 @@ export function emit(event, payload) {
     }
   });
 }
+
+/**
+ * Assina um evento para ser chamado apenas uma vez.
+ * @param {string} event
+ * @param {(payload:any)=>void} handler
+ * @returns {() => void} Função para desinscrever (caso não tenha sido chamado)
+ */
+export function once(event, handler) {
+  // Usa `on` para obter a função de desinscrição e remove após primeira chamada
+  const offFn = on(event, (payload) => {
+    try {
+      handler(payload);
+    } finally {
+      offFn();
+    }
+  });
+  return offFn;
+}

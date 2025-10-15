@@ -17,17 +17,10 @@ import { closeMobileMenu } from './mobileMenu.js';
  */
 export function bindEvents(dependencies) {
     try {
-        // Evento de carregamento da página
-        window.addEventListener('load', () => {
-            if (dependencies.hidePreloader) {
-                dependencies.hidePreloader();
-            }
-        });
-
         // Evento de scroll otimizado com throttle e listener passivo
         const onScrollThrottled = throttle(() => {
             handleScroll();
-        }, APP_CONFIG.animation.debounceDelay);
+        }, APP_CONFIG.animation.scrollThrottleMs);
         window.addEventListener('scroll', onScrollThrottled, { passive: true });
 
         // Evento de redimensionamento (debounce)
@@ -35,10 +28,6 @@ export function bindEvents(dependencies) {
             handleResize();
         }, 250));
 
-        // Tratamento de erros globais (mantido, boundary também cobre)
-        window.addEventListener('error', (event) => {
-            console.error('Erro global capturado:', event.error);
-        });
     } catch (error) {
         console.error('Erro ao vincular eventos:', error);
     }

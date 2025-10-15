@@ -1,1 +1,0 @@
-var o=new Map;function c(e,r){return o.has(e)||o.set(e,new Set),o.get(e).add(r),()=>i(e,r)}function i(e,r){let t=o.get(e);t&&(t.delete(r),t.size===0&&o.delete(e))}function f(e,r){let t=o.get(e);!t||t.size===0||t.forEach(s=>{try{s(r)}catch(n){console.error(`[eventBus] Erro em handler de '${e}':`,n)}})}export{c as a,f as b};
