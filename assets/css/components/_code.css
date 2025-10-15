@@ -1,0 +1,92 @@
+/* ==========================================
+   COMPONENTE: Code Snippet
+   ========================================== */
+
+.code-snippet {
+  border: 2px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  background: transparent; /* fundo transparente */
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  min-height: 430px; /* altura sugerida para composição visual */
+}
+
+.code-snippet__header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  border-bottom: 1px solid var(--border-light);
+  background: transparent;
+  padding: var(--space-3) var(--space-4);
+}
+
+.dot {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: inline-block;
+}
+.dot--red { background: #ef4444; }
+.dot--yellow { background: #f59e0b; }
+.dot--green { background: #10b981; }
+
+.code-snippet__title {
+  margin-left: var(--space-4);
+  color: var(--text-secondary);
+  font-size: var(--text-sm);
+}
+
+.code-snippet__body {
+  padding: var(--space-6);
+  background: transparent;
+  flex: 1;
+  overflow-y: auto;
+}
+
+.code-snippet__pre {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: var(--text-sm);
+  color: var(--text-tertiary);
+  white-space: pre-wrap;
+}
+
+/* Cursor visual para o efeito */
+.code-cursor-active::after {
+  content: '_';
+  animation: blink 1s steps(2, start) infinite;
+  color: var(--text-secondary);
+}
+
+@keyframes blink {
+  to { visibility: hidden; }
+}
+
+/* Paleta de cores para marcações no código (simulando utilitários do Tailwind) */
+.text-purple-400 { color: #a78bfa; }
+.text-cyan-400   { color: #22d3ee; }
+.text-yellow-300 { color: #fde047; }
+.text-green-400  { color: #34d399; }
+.text-orange-400 { color: #fb923c; }
+.text-gray-500   { color: #6b7280; }
+
+
+/* Largura fixa para o componente de snippet de código */
+.code-snippet--fixed {
+  width: 600px; /* ajuste aqui a largura desejada */
+  max-width: 100%;
+  margin: 0 auto; /* centraliza dentro do container */
+}
+
+/* Garantir que o conteúdo interno ocupe toda a largura do bloco */
+.code-snippet--fixed .code-snippet__body,
+.code-snippet--fixed .code-snippet__pre {
+  width: 100%;
+}
+
+/* Responsivo: em telas menores, ocupar toda a largura disponível */
+@media (max-width: 768px) {
+  .code-snippet--fixed {
+    width: 100%;
+  }
+}

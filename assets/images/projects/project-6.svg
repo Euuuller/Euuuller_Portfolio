@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="300" height="200" viewBox="0 0 300 200" fill="none" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Projeto 6 - Painel Executivo">
+  <!-- Moldura sutil -->
+  <rect x="15" y="15" width="270" height="170" rx="12" fill="none" stroke="#64748b" stroke-width="1.5"/>
+  <!-- Cards do painel -->
+  <rect x="40" y="40" width="80" height="50" rx="6" fill="#3b82f6"/>
+  <rect x="130" y="40" width="80" height="50" rx="6" fill="#6366f1"/>
+  <rect x="220" y="40" width="40" height="50" rx="6" fill="#14b8a6"/>
+  <rect x="40" y="100" width="220" height="30" rx="6" fill="#f59e0b"/>
+  <circle cx="240" cy="115" r="15" fill="#ef4444"/>
+</svg>

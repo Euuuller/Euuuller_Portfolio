@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Favicon/Logo minimalista em SVG para Portfólio de Euller dos Santos -->
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128" role="img" aria-label="Logo ES">
+  <title>Logo ES</title>
+  <!-- Fundo com cantos arredondados -->
+  <rect x="8" y="8" width="112" height="112" rx="24" fill="#111827"/>
+  <!-- Borda sutil para contraste -->
+  <rect x="8" y="8" width="112" height="112" rx="24" fill="none" stroke="#4F46E5" stroke-width="4"/>
+  <!-- Monograma ES minimalista -->
+  <g fill="#FFFFFF">
+    <!-- Letra E -->
+    <rect x="32" y="40" width="32" height="8" rx="4"/>
+    <rect x="32" y="60" width="28" height="8" rx="4"/>
+    <rect x="32" y="80" width="32" height="8" rx="4"/>
+    <!-- Letra S -->
+    <path d="M64 40 h24 a12 12 0 0 1 0 24 h-16 a8 8 0 0 0 0 16 h20 a4 4 0 0 1 0 8 h-24 a12 12 0 0 1 0-24 h16 a8 8 0 0 0 0-16 h-20 a4 4 0 0 1 0-8z"/>
+  </g>
+</svg>

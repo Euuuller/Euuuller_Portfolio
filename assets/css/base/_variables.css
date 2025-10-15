@@ -1,0 +1,198 @@
+/* ==========================================
+   VARIÁVEIS CSS - TEMA CLARO (ALL WHITE)
+   ========================================== */
+
+:root {
+    /* Cores Primárias - Tema Claro */
+    --primary-color: #3b82f6;
+    --primary-hover: #2563eb;
+    --accent-color: #0ea5e9;
+    
+    /* Cores de Texto - Tema Claro */
+    --text-primary: #000000;
+    --text-secondary: #333333;
+    --text-tertiary: #666666;
+    --text-muted: #999999;
+    --text-inverse: #ffffff;
+
+    /* Cores de Fundo - Tema Claro (ALL WHITE) */
+    --bg-primary: #ffffff;
+    --bg-secondary: #ffffff;
+    --bg-tertiary: #ffffff;
+    --bg-card: #ffffff;
+    --bg-overlay: rgba(0, 0, 0, 0.1);
+
+    /* Cores de Borda - Tema Claro */
+    --border-light: #e0e0e0;
+    --border-medium: #cccccc;
+    --border-dark: #999999;
+
+    /* Sombras - Tema Claro */
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+    --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.15);
+
+    /* Tipografia */
+    --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-secondary: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+    /* Tamanhos de Fonte */
+    --text-xs: 0.75rem;
+    --text-sm: 0.875rem;
+    --text-base: 1rem;
+    --text-lg: 1.125rem;
+    --text-xl: 1.25rem;
+    --text-2xl: 1.5rem;
+    --text-3xl: 1.875rem;
+    --text-4xl: 2.25rem;
+    --text-5xl: 3rem;
+    --text-6xl: 3.75rem;
+
+    /* Espaçamentos */
+    --space-1: 0.25rem;
+    --space-2: 0.5rem;
+    --space-3: 0.75rem;
+    --space-4: 1rem;
+    --space-5: 1.25rem;
+    --space-6: 1.5rem;
+    --space-8: 2rem;
+    --space-10: 2.5rem;
+    --space-12: 3rem;
+    --space-16: 4rem;
+    --space-20: 5rem;
+    --space-24: 6rem;
+    --space-32: 8rem;
+
+    /* Transições */
+    --transition-fast: 0.15s ease;
+    --transition-normal: 0.3s ease;
+    --transition-slow: 0.5s ease;
+
+    /* Border Radius */
+    --radius-sm: 0.25rem;
+    --radius-md: 0.5rem;
+    --radius-lg: 0.75rem;
+    --radius-xl: 1rem;
+    --radius-full: 9999px;
+
+    /* Z-Index */
+    --z-dropdown: 10;
+    --z-sticky: 20;
+    --z-fixed: 30;
+    --z-modal: 40;
+    --z-popover: 50;
+
+    /* Paleta do logo animado */
+    --logo-grad-1: #ff3b30;
+    --logo-grad-2: #ff7a1a;
+    --logo-grad-3: #ffd60a;
+    --logo-glow: rgba(255, 122, 26, 0.35);
+
+    /* ===============================
+       Fundo Galáxia / Overlays
+       =============================== */
+    --galaxy-saturation: 1.1;
+    --galaxy-contrast: 1.06;
+    --galaxy-brightness: 1.03;
+    --galaxy-nebula-1: rgba(58, 12, 163, 0.32);
+    --galaxy-nebula-2: rgba(0, 118, 255, 0.28);
+    --galaxy-nebula-3: rgba(255, 0, 135, 0.22);
+    --galaxy-nebula-4: rgba(255, 220, 120, 0.16);
+    --galaxy-core-1: rgba(59, 130, 246, 0.22);
+    --galaxy-core-2: rgba(139, 92, 246, 0.18);
+    --stars-color: rgba(0, 0, 0, 0.10);
+    --stars-strong: rgba(0, 0, 0, 0.08);
+    --galaxy-vignette: 0.08;
+    --dust-opacity: 0.08;
+
+    /* Partículas de fogo (Embers) - Tema Claro */
+    --ember-core: rgba(255, 232, 170, 0.85);
+    --ember-ring: rgba(255, 168, 88, 0.85);
+    --ember-glow: rgba(255, 150, 70, 0.45);
+    --ember-density: 0.9; /* 0.0 – 1.0 */
+    --ember-size-min: 1.8px;
+    --ember-size-max: 3.4px;
+    --ember-speed-min: 22; /* px/s */
+    --ember-speed-max: 48; /* px/s */
+    /* Variação de Marca (usa paleta do logo) */
+    --ember-core-brand: rgba(255, 214, 10, 0.90);  /* logo-grad-3 aproximado */
+    --ember-ring-brand: rgba(255, 122, 26, 0.88);  /* logo-grad-2 aproximado */
+    --ember-glow-brand: rgba(255, 122, 26, 0.55);  /* logo-glow reforçado */
+
+    /* Overlay de conteúdo para legibilidade sobre o fundo */
+    --content-bg: rgba(255, 255, 255, 0.64);
+    --content-backdrop-blur: 10px;
+}
+
+/* ==========================================
+   TEMA ESCURO (ALL BLACK)
+   ========================================== */
+
+[data-theme="dark"] {
+    /* Cores de Texto - Tema Escuro */
+    --text-primary: #ffffff;
+    --text-secondary: #cccccc;
+    --text-tertiary: #999999;
+    --text-muted: #666666;
+    --text-inverse: #000000;
+
+    /* Cores de Fundo - Tema Escuro (ALL BLACK) */
+    --bg-primary: #000000;
+    --bg-secondary: #000000;
+    --bg-tertiary: #000000;
+    --bg-card: #000000;
+    --bg-overlay: rgba(255, 255, 255, 0.1);
+
+    /* Cores de Borda - Tema Escuro */
+    --border-light: #333333;
+    --border-medium: #555555;
+    --border-dark: #777777;
+
+    /* Sombras - Tema Escuro */
+    --shadow-sm: 0 1px 3px rgba(255, 255, 255, 0.1);
+    --shadow-md: 0 4px 6px rgba(255, 255, 255, 0.1);
+    --shadow-lg: 0 10px 15px rgba(255, 255, 255, 0.1);
+    --shadow-xl: 0 20px 25px rgba(255, 255, 255, 0.15);
+
+    /* Paleta do logo animado (ajuste para fundo escuro) */
+    --logo-grad-1: #ff4d40;
+    --logo-grad-2: #ff8a33;
+    --logo-grad-3: #ffda3a;
+    --logo-glow: rgba(255, 154, 58, 0.45);
+
+    /* ===============================
+       Fundo Galáxia / Overlays (modo escuro)
+       =============================== */
+    --galaxy-saturation: 1.15;
+    --galaxy-contrast: 1.08;
+    --galaxy-brightness: 0.95;
+    --galaxy-nebula-1: rgba(88, 28, 203, 0.54);
+    --galaxy-nebula-2: rgba(30, 144, 255, 0.44);
+    --galaxy-nebula-3: rgba(255, 64, 160, 0.40);
+    --galaxy-nebula-4: rgba(255, 220, 120, 0.26);
+    --galaxy-core-1: rgba(59, 130, 246, 0.20);
+    --galaxy-core-2: rgba(139, 92, 246, 0.16);
+    --stars-color: rgba(255, 255, 255, 0.10);
+    --stars-strong: rgba(255, 255, 255, 0.07);
+    --galaxy-vignette: 0.18;
+    --dust-opacity: 0.06;
+
+    /* Partículas de fogo (Embers) - Tema Escuro */
+    --ember-core: rgba(255, 240, 190, 0.95);
+    --ember-ring: rgba(255, 176, 96, 0.90);
+    --ember-glow: rgba(255, 168, 84, 0.55);
+    --ember-density: 1.0;
+    --ember-size-min: 2.0px;
+    --ember-size-max: 3.8px;
+    --ember-speed-min: 26; /* px/s */
+    --ember-speed-max: 54; /* px/s */
+    /* Variação de Marca (usa paleta do logo) */
+    --ember-core-brand: rgba(255, 214, 10, 0.95);
+    --ember-ring-brand: rgba(255, 136, 36, 0.92);
+    --ember-glow-brand: rgba(255, 154, 58, 0.60); /* próximo do logo-glow */
+
+    /* Overlay de conteúdo para legibilidade */
+    --content-bg: rgba(0, 0, 0, 0.58);
+    --content-backdrop-blur: 7px;
+}

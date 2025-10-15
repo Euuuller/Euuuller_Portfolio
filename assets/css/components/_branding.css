@@ -1,0 +1,114 @@
+/* Branding animado para o texto DataScientist */
+.logo-animated {
+  position: relative;
+  display: inline-block;
+  isolation: isolate;
+}
+
+.logo-animated::after { display: none; }
+
+.logo-animated .header__logo-primary,
+.logo-animated .header__logo-secondary,
+.logo-animated .mobile-menu__logo-primary,
+.logo-animated .mobile-menu__logo-secondary,
+.logo-animated .footer__logo-primary,
+.logo-animated .footer__logo-secondary {
+  background-image: linear-gradient(90deg, var(--logo-grad-1), var(--logo-grad-2), var(--logo-grad-3));
+  background-size: 200% 200%;
+  background-position: 0% 50%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  filter: drop-shadow(0 0 0.35rem var(--logo-glow));
+  opacity: 0;
+}
+
+.main-content.loaded .logo-animated .header__logo-primary,
+.main-content.loaded .logo-animated .mobile-menu__logo-primary,
+.main-content.loaded .logo-animated .footer__logo-primary {
+  animation: logo-reveal 0.9s cubic-bezier(0.33, 1, 0.68, 1) both, logo-gradient 8s ease-in-out 0.9s infinite;
+}
+
+.main-content.loaded .logo-animated .header__logo-secondary,
+.main-content.loaded .logo-animated .mobile-menu__logo-secondary,
+.main-content.loaded .logo-animated .footer__logo-secondary {
+  animation: logo-reveal 1.05s cubic-bezier(0.33, 1, 0.68, 1) both, logo-gradient 8s ease-in-out 1.05s infinite;
+}
+
+.logo-animated:hover .header__logo-primary,
+.logo-animated:hover .header__logo-secondary,
+.logo-animated:hover .mobile-menu__logo-primary,
+.logo-animated:hover .mobile-menu__logo-secondary,
+.logo-animated:hover .footer__logo-primary,
+.logo-animated:hover .footer__logo-secondary {
+  filter: drop-shadow(0 0 0.55rem var(--logo-glow));
+}
+
+@keyframes logo-gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes logo-shine {
+  0% { left: -30%; }
+  100% { left: 130%; }
+}
+
+@keyframes logo-reveal {
+  0% { opacity: 0; transform: translateY(6px); letter-spacing: -0.5px; }
+  100% { opacity: 1; transform: translateY(0); letter-spacing: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .logo-animated::after { display: none; }
+  .logo-animated .header__logo-primary,
+  .logo-animated .header__logo-secondary,
+  .logo-animated .mobile-menu__logo-primary,
+  .logo-animated .mobile-menu__logo-secondary,
+  .logo-animated .footer__logo-primary,
+  .logo-animated .footer__logo-secondary {
+    animation: none !important;
+    opacity: 1 !important;
+    background-position: 50% 50%;
+    filter: none;
+  }
+}
+
+/* =========================
+   MODO RAINBOW (variação dinâmica de cores)
+   Ative adicionando a classe: .logo-animated--rainbow
+   ========================= */
+.logo-animated--rainbow .header__logo-primary,
+.logo-animated--rainbow .header__logo-secondary,
+.logo-animated--rainbow .mobile-menu__logo-primary,
+.logo-animated--rainbow .mobile-menu__logo-secondary,
+.logo-animated--rainbow .footer__logo-primary,
+.logo-animated--rainbow .footer__logo-secondary {
+  background-image: linear-gradient(
+    90deg,
+    var(--logo-grad-1), var(--logo-grad-2), var(--logo-grad-3),
+    #34d399, #22d3ee, #3b82f6, #a78bfa,
+    var(--logo-grad-1)
+  );
+  background-size: 600% 600%;
+}
+
+.main-content.loaded .logo-animated.logo-animated--rainbow .header__logo-primary,
+.main-content.loaded .logo-animated.logo-animated--rainbow .mobile-menu__logo-primary,
+.main-content.loaded .logo-animated.logo-animated--rainbow .footer__logo-primary {
+  animation: logo-reveal 0.9s cubic-bezier(0.33, 1, 0.68, 1) both, rainbow-flow 12s linear 0.9s infinite;
+}
+
+.main-content.loaded .logo-animated.logo-animated--rainbow .header__logo-secondary,
+.main-content.loaded .logo-animated.logo-animated--rainbow .mobile-menu__logo-secondary,
+.main-content.loaded .logo-animated.logo-animated--rainbow .footer__logo-secondary {
+  animation: logo-reveal 1.05s cubic-bezier(0.33, 1, 0.68, 1) both, rainbow-flow 12s linear 1.05s infinite;
+}
+
+@keyframes rainbow-flow {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}

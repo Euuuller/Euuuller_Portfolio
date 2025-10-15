@@ -1,0 +1,79 @@
+/* ==========================================
+   RESPONSIVIDADE ADICIONAL
+   ========================================== */
+
+@media (max-width: 575px) {
+    .container {
+        padding: 0 var(--space-4);
+    }
+    
+    .hero__name {
+        font-size: var(--text-3xl);
+    }
+    
+    .hero__title {
+        font-size: var(--text-xl);
+    }
+    
+    .section-title {
+        font-size: var(--text-2xl);
+    }
+    
+    .btn {
+        padding: var(--space-3) var(--space-5);
+        font-size: var(--text-sm);
+    }
+}
+
+/* ==========================================
+   UTILITÁRIOS DE ACESSIBILIDADE
+   ========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* Focus visible para navegação por teclado */
+.btn:focus-visible,
+.header__nav-link:focus-visible,
+.header__theme-toggle:focus-visible,
+.header__social-link:focus-visible,
+.form-input:focus-visible {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+/* ==========================================
+   PRINT STYLES
+   ========================================== */
+
+@media print {
+    .header,
+    .mobile-menu,
+    .footer__scroll-top,
+    .preloader {
+        display: none !important;
+    }
+    
+    .main-content {
+        opacity: 1 !important;
+    }
+    
+    body {
+        background: white !important;
+        color: black !important;
+    }
+    
+    .hero__actions,
+    .projects__cta,
+    .contact {
+        display: none !important;
+    }
+}

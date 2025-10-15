@@ -1,0 +1,69 @@
+/* ==========================================
+   PONTO DE ENTRADA PRINCIPAL DO CSS
+   Este arquivo importa todos os módulos.
+   Não adicione estilos diretamente aqui.
+   ========================================== */
+
+/* 1. Base Styles */
+@import url('base/_variables.css');
+@import url('base/_reset.css');
+
+/* 2. Components */
+@import url('components/_preloader.css');
+@import url('components/_buttons.css');
+@import url('components/_cards.css');
+@import url('components/_code.css');
+@import url('components/_branding.css');
+
+/* 3. Layout */
+@import url('layout/_header.css');
+@import url('layout/_mobile-menu.css');
+@import url('layout/_sections.css');
+@import url('layout/_footer.css');
+@import url('layout/_galaxy.css');
+
+/* 4. Utilities */
+@import url('utils/_animations.css');
+@import url('utils/_responsive.css');
+
+/* ==========================================
+   ESTILOS GLOBAIS REMANESCENTES
+   (Mantenha aqui os que não se encaixam)
+   ========================================== */
+
+.main-content {
+    position: relative;
+    z-index: var(--z-sticky);
+    opacity: 0;
+    transition: opacity var(--transition-slow);
+}
+
+.main-content.loaded {
+    opacity: 1;
+}
+
+/* Parágrafos: cores por tema (override global) */
+[data-theme="light"] p {
+  color: #000000;
+}
+
+[data-theme="dark"] p {
+  color: #FFFFFF;
+}
+
+/* Tema: borda inferior (linha divisória) do header do code-snippet na seção Sobre Mim */
+[data-theme="light"] #about .code-snippet__header {
+  border-bottom-color: #000000 !important;
+}
+
+[data-theme="dark"] #about .code-snippet__header {
+  border-bottom-color: #FFFFFF !important;
+}
+
+[data-theme="light"] #about .code-snippet {
+  border-color: #000000 !important;
+}
+
+[data-theme="dark"] #about .code-snippet {
+  border-color: #FFFFFF !important;
+}
