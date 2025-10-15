@@ -37,11 +37,13 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap"
         rel="stylesheet">
+    <!-- Preconnect para CDN de ícones (devicons) -->
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
 
     <!-- ========================================
          ESTILOS CUSTOMIZADOS
          ======================================== -->
-    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/dist/style.min.css">
 
     <!-- ========================================
          FAVICON / APP ICON
@@ -293,8 +295,12 @@
                         <div class="hero__image">
                             <div class="hero__image-container">
                                 <div class="hero__image-bg"></div>
-                                <img src="./assets/images/1_Imagem.jpeg" alt="Imagem de PerfilFoto de perfil"
-                                    class="hero__image-photo">
+                                <picture>
+                                    <source srcset="./assets/dist/images/1_Imagem.avif" type="image/avif">
+                                    <source srcset="./assets/dist/images/1_Imagem.webp" type="image/webp">
+                                    <img src="./assets/images/1_Imagem.jpeg" alt="Imagem de PerfilFoto de perfil"
+                                        class="hero__image-photo" width="400" height="400" decoding="async" fetchpriority="high">
+                                </picture>
                             </div>
                         </div>
                     </div>
@@ -387,7 +393,7 @@
 
                         <div class="skill-card" data-category="ml">
                             <div class="skill-card__icon">
-                                <img src="./assets/images/skills/r.svg" alt="R" class="skill-card__image">
+                                <img src="./assets/images/skills/r.svg" alt="R" class="skill-card__image" width="40" height="40" loading="lazy" decoding="async">
                             </div>
                             <h3 class="skill-card__title">R</h3>
                             <p class="skill-card__description">Análise Estatística Avançada</p>
@@ -404,7 +410,7 @@
 
                         <div class="skill-card" data-category="visualization">
                             <div class="skill-card__icon">
-                                <img src="./assets/images/skills/power-bi.svg" alt="Power BI" class="skill-card__image">
+                                <img src="./assets/images/skills/power-bi.svg" alt="Power BI" class="skill-card__image" width="40" height="40" loading="lazy" decoding="async">
                             </div>
                             <h3 class="skill-card__title">Power BI</h3>
                             <p class="skill-card__description">Dashboards e Relatórios</p>
@@ -412,7 +418,7 @@
 
                         <div class="skill-card" data-category="visualization">
                             <div class="skill-card__icon">
-                                <img src="./assets/images/skills/excel.svg" alt="Excel" class="skill-card__image">
+                                <img src="./assets/images/skills/excel.svg" alt="Excel" class="skill-card__image" width="40" height="40" loading="lazy" decoding="async">
                             </div>
                             <h3 class="skill-card__title">Excel</h3>
                             <p class="skill-card__description">Análise e Modelagem Avançada</p>
@@ -420,7 +426,7 @@
 
                         <div class="skill-card" data-category="visualization">
                             <div class="skill-card__icon">
-                                <img src="./assets/images/skills/tableau.svg" alt="Tableau" class="skill-card__image">
+                                <img src="./assets/images/skills/tableau.svg" alt="Tableau" class="skill-card__image" width="40" height="40" loading="lazy" decoding="async">
                             </div>
                             <h3 class="skill-card__title">Tableau</h3>
                             <p class="skill-card__description">Visualização de Dados</p>
@@ -461,7 +467,7 @@
                         <article class="project-card">
                             <div class="project-card__image">
                                 <img src="./assets/images/projects/project-1.svg" alt="Análise de Vendas"
-                                    class="project-card__img">
+                                    class="project-card__img" loading="lazy" decoding="async">
                             </div>
                             <div class="project-card__content">
                                 <h3 class="project-card__title">Análise de Vendas</h3>
@@ -527,7 +533,7 @@
                         <article class="project-card">
                             <div class="project-card__image">
                                 <img src="./assets/images/projects/project-4.svg" alt="Análise de Sentimentos"
-                                    class="project-card__img">
+                                    class="project-card__img" loading="lazy" decoding="async">
                             </div>
                             <div class="project-card__content">
                                 <h3 class="project-card__title">Análise de Sentimentos</h3>
@@ -549,7 +555,7 @@
                         <article class="project-card">
                             <div class="project-card__image">
                                 <img src="./assets/images/projects/project-5.svg" alt="Previsão de Preços"
-                                    class="project-card__img">
+                                    class="project-card__img" loading="lazy" decoding="async">
                             </div>
                             <div class="project-card__content">
                                 <h3 class="project-card__title">Previsão de Preços</h3>
@@ -749,7 +755,7 @@
     <!-- ========================================
          JAVASCRIPT
          ======================================== -->
-    <script type="module" src="./assets/js/main.js"></script>
+<script type="module" src="./assets/dist/main.min.js"></script>
 </body>
 
 </html>

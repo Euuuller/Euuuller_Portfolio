@@ -1,0 +1,30 @@
+{
+  "name": "euuuller_portfolio",
+  "version": "1.0.0",
+  "description": "[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE) [![Status](https://img.shields.io/badge/status-ativo-success.svg)](index.html) [![Stack: HTML/CSS/JS](https://img.shields.io/badge/stack-HTML%20%7C%20CSS%20%7C%20JS-orange.svg)](index.html) [![Deploy: GitHub Pages](https://img.shields.io/badge/Deploy-GitHub%20Pages-222?logo=github)](https://pages.github.com/)",
+  "main": "index.js",
+  "scripts": {
+    "build": "node build.js",
+    "images": "node scripts/optimize-images.js",
+    "measure": "node scripts/measure-day1.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Euuuller/Euuuller_Portfolio.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Euuuller/Euuuller_Portfolio/issues"
+  },
+  "homepage": "https://github.com/Euuuller/Euuuller_Portfolio#readme",
+  "devDependencies": {
+    "csso": "^5.0.5",
+    "esbuild": "^0.25.11",
+    "fast-glob": "^3.3.3",
+    "sharp": "^0.34.4",
+    "svgo": "^4.0.0"
+  }
+}
