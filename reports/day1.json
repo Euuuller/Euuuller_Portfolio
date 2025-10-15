@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2025-10-15T05:15:29.150Z",
+  "generatedAt": "2025-10-15T05:40:23.381Z",
   "assets": {
     "css": {
       "file": "assets\\dist\\style.min.css",
-      "sizeKB": 33.7
+      "sizeKB": 34.64
     },
     "js": {
       "file": "assets\\dist\\main.min.js",
@@ -21,13 +21,63 @@
       "jpeg": {
         "file": "assets\\images\\1_Imagem.jpeg",
         "sizeKB": 111.61
+      },
+      "jpegFallbackDist": {
+        "file": "assets\\dist\\images\\1_Imagem-800.jpg",
+        "sizeKB": 72.84
+      },
+      "responsive": {
+        "avif": [
+          {
+            "file": "assets\\dist\\images\\1_Imagem-280.avif",
+            "sizeKB": 5.87
+          },
+          {
+            "file": "assets\\dist\\images\\1_Imagem-320.avif",
+            "sizeKB": 6.83
+          },
+          {
+            "file": "assets\\dist\\images\\1_Imagem-400.avif",
+            "sizeKB": 8.08
+          },
+          {
+            "file": "assets\\dist\\images\\1_Imagem-640.avif",
+            "sizeKB": 12.98
+          },
+          {
+            "file": "assets\\dist\\images\\1_Imagem-800.avif",
+            "sizeKB": 15.96
+          }
+        ],
+        "webp": [
+          {
+            "file": "assets\\dist\\images\\1_Imagem-280.webp",
+            "sizeKB": 6.54
+          },
+          {
+            "file": "assets\\dist\\images\\1_Imagem-320.webp",
+            "sizeKB": 7.61
+          },
+          {
+            "file": "assets\\dist\\images\\1_Imagem-400.webp",
+            "sizeKB": 9.96
+          },
+          {
+            "file": "assets\\dist\\images\\1_Imagem-640.webp",
+            "sizeKB": 17.05
+          },
+          {
+            "file": "assets\\dist\\images\\1_Imagem-800.webp",
+            "sizeKB": 22.63
+          }
+        ]
       }
     }
   },
   "html": {
     "imgAll": 15,
-    "imgLazy": 11,
-    "imgAsyncDecoding": 8,
+    "imgLazy": 14,
+    "imgAsyncDecoding": 15,
     "pictureTags": 1,
     "cssLinks": 2,
     "jsScripts": 1

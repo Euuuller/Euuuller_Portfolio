@@ -8,6 +8,7 @@
 const fs = require('fs');
 const fsp = fs.promises;
 const path = require('path');
+const fg = require('fast-glob');
 
 const ROOT = path.resolve(__dirname, '..');
 const DIST = path.join(ROOT, 'assets', 'dist');
@@ -44,15 +45,32 @@ async function main() {
   const heroAvif = path.join(IMAGES_DIST, '1_Imagem.avif');
   const heroWebp = path.join(IMAGES_DIST, '1_Imagem.webp');
   const heroJpeg = path.join(IMAGES_SRC, '1_Imagem.jpeg');
+  const heroJpegDistFallback = path.join(IMAGES_DIST, '1_Imagem-800.jpg');
   const htmlPath = path.join(ROOT, 'index.html');
 
-  const [cssKB, jsKB, avifKB, webpKB, jpegKB] = await Promise.all([
+  const [cssKB, jsKB, avifKB, webpKB, jpegKB, jpegFallbackDistKB] = await Promise.all([
     fileSize(cssPath),
     fileSize(jsPath),
     fileSize(heroAvif),
     fileSize(heroWebp),
     fileSize(heroJpeg),
+    fileSize(heroJpegDistFallback),
   ]);
+
+  // Responsive hero srcsets (AVIF/WebP)
+  const avifFiles = await fg(['1_Imagem-*.avif'], { cwd: IMAGES_DIST });
+  const webpFiles = await fg(['1_Imagem-*.webp'], { cwd: IMAGES_DIST });
+  async function listSizes(files) {
+    const out = [];
+    for (const rel of files) {
+      const fp = path.join(IMAGES_DIST, rel);
+      const size = await fileSize(fp);
+      out.push({ file: path.relative(ROOT, fp), sizeKB: size });
+    }
+    return out.sort((a, b) => a.file.localeCompare(b.file));
+  }
+  const avifSrcset = await listSizes(avifFiles);
+  const webpSrcset = await listSizes(webpFiles);
 
   const html = await fsp.readFile(htmlPath, 'utf8');
   const metrics = await countHtmlMetrics(html);
@@ -66,6 +84,11 @@ async function main() {
         avif: { file: path.relative(ROOT, heroAvif), sizeKB: avifKB },
         webp: { file: path.relative(ROOT, heroWebp), sizeKB: webpKB },
         jpeg: { file: path.relative(ROOT, heroJpeg), sizeKB: jpegKB },
+        jpegFallbackDist: { file: path.relative(ROOT, heroJpegDistFallback), sizeKB: jpegFallbackDistKB },
+        responsive: {
+          avif: avifSrcset,
+          webp: webpSrcset,
+        },
       },
     },
     html: metrics,
@@ -80,7 +103,10 @@ async function main() {
     `- JS (min): ${jsKB ?? 'n/a'} KB\n` +
     `- Hero AVIF: ${avifKB ?? 'n/a'} KB\n` +
     `- Hero WebP: ${webpKB ?? 'n/a'} KB\n` +
-    `- Hero JPEG (fallback): ${jpegKB ?? 'n/a'} KB\n` +
+    `- Hero JPEG (orig src): ${jpegKB ?? 'n/a'} KB\n` +
+    `- Hero JPEG fallback (dist 800px): ${jpegFallbackDistKB ?? 'n/a'} KB\n` +
+    `- Hero AVIF srcset: ${avifSrcset.map(i => `${path.basename(i.file)}=${i.sizeKB ?? 'n/a'}KB`).join(', ') || 'n/a'}\n` +
+    `- Hero WebP srcset: ${webpSrcset.map(i => `${path.basename(i.file)}=${i.sizeKB ?? 'n/a'}KB`).join(', ') || 'n/a'}\n` +
     `- <img> total: ${metrics.imgAll}\n` +
     `- <img loading="lazy">: ${metrics.imgLazy}\n` +
     `- <img decoding="async">: ${metrics.imgAsyncDecoding}\n` +
@@ -89,6 +115,7 @@ async function main() {
     `- JS scripts: ${metrics.jsScripts}\n` +
     `\nObservações:\n` +
     `- Hero usa <picture> com AVIF/WebP e fallback JPEG.\n` +
+    `- Agora o hero é responsivo com srcsets; tamanhos listados acima.\n` +
     `- Atributos width/height e fetchpriority="high" mantêm estabilidade e prioridade de carregamento.\n`;
 
   await fsp.writeFile(path.join(outDir, 'day1.md'), md, 'utf8');

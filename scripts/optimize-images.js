@@ -23,31 +23,54 @@ async function ensureDir(dir) {
 async function convertHero() {
   const heroSrc = path.join(INPUT_DIR, '1_Imagem.jpeg');
   const baseName = '1_Imagem';
-  const outAvif = path.join(OUTPUT_DIR, `${baseName}.avif`);
-  const outWebp = path.join(OUTPUT_DIR, `${baseName}.webp`);
+  const sizes = [280, 320, 400, 640, 800];
 
   try {
     await ensureDir(OUTPUT_DIR);
-    const image = sharp(heroSrc);
-    const meta = await image.metadata();
-    const targetWidth = Math.min(meta.width || 800, 800); // cap at 800px for balance
+    const meta = await sharp(heroSrc).metadata();
+    const maxWidth = Math.min(meta.width || 800, 800);
 
-    // AVIF: excellent compression, slightly lower quality setting
-    await image
-      .resize({ width: targetWidth })
-      .avif({ quality: 55 })
-      .toFile(outAvif);
+    const outputs = { avif: [], webp: [], jpeg: null };
 
-    // WebP: wider compatibility
+    for (const w of sizes) {
+      const width = Math.min(w, maxWidth);
+
+      const outAvif = path.join(OUTPUT_DIR, `${baseName}-${width}.avif`);
+      const outWebp = path.join(OUTPUT_DIR, `${baseName}-${width}.webp`);
+
+      // AVIF
+      await sharp(heroSrc)
+        .resize({ width })
+        .avif({ quality: 55 })
+        .toFile(outAvif);
+      outputs.avif.push(path.relative(ROOT, outAvif));
+
+      // WebP
+      await sharp(heroSrc)
+        .resize({ width })
+        .webp({ quality: 75 })
+        .toFile(outWebp);
+      outputs.webp.push(path.relative(ROOT, outWebp));
+    }
+
+    // Fallback JPEG otimizado (800px)
+    const outJpeg = path.join(OUTPUT_DIR, `${baseName}-800.jpg`);
     await sharp(heroSrc)
-      .resize({ width: targetWidth })
-      .webp({ quality: 75 })
-      .toFile(outWebp);
+      .resize({ width: maxWidth })
+      .jpeg({ quality: 80, chromaSubsampling: '4:4:4' })
+      .toFile(outJpeg);
+    outputs.jpeg = path.relative(ROOT, outJpeg);
 
-    console.log('[images] Hero converted:', {
-      avif: path.relative(ROOT, outAvif),
-      webp: path.relative(ROOT, outWebp),
-      width: targetWidth,
+    // Também gerar versões "sem sufixo" para compatibilidade retroativa
+    const outAvifSingle = path.join(OUTPUT_DIR, `${baseName}.avif`);
+    const outWebpSingle = path.join(OUTPUT_DIR, `${baseName}.webp`);
+    await sharp(heroSrc).resize({ width: maxWidth }).avif({ quality: 55 }).toFile(outAvifSingle);
+    await sharp(heroSrc).resize({ width: maxWidth }).webp({ quality: 75 }).toFile(outWebpSingle);
+
+    console.log('[images] Hero converted responsive:', {
+      avif: outputs.avif,
+      webp: outputs.webp,
+      jpeg: outputs.jpeg,
     });
   } catch (err) {
     console.error('[images] Hero conversion failed:', err.message);
