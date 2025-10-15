@@ -25,6 +25,7 @@
 /* 4. Utilities */
 @import url('utils/_animations.css');
 @import url('utils/_responsive.css');
+@import url('layout/_mobile.css');
 
 /* ==========================================
    ESTILOS GLOBAIS REMANESCENTES

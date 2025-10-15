@@ -1,0 +1,91 @@
+/* ==========================================
+   LAYOUT MOBILE (Overrides focados em performance e usabilidade)
+   Aplica ajustes específicos para telas pequenas
+   ========================================== */
+
+/* Breakpoint principal para smartphones */
+@media (max-width: 575px) {
+  /* Estrutura geral */
+  .section {
+    padding-block: var(--space-12);
+  }
+
+  .container {
+    padding-inline: var(--space-4);
+  }
+
+  /* Hero: reduzir altura, centralizar leitura e desativar efeitos pesados */
+  .hero {
+    min-height: auto;
+    padding-top: 72px;
+    padding-bottom: var(--space-12);
+  }
+
+  .hero__description {
+    font-size: var(--text-sm);
+    line-height: 1.6;
+    text-align: left;
+    text-indent: 0;
+    margin-bottom: var(--space-6);
+  }
+
+  .hero__image-container {
+    width: 280px;
+    height: 280px;
+  }
+
+  .hero__image-bg {
+    display: none;
+  }
+
+  .hero__image-container::before {
+    content: none;
+  }
+
+  .hero__typed-text {
+    animation: none;
+  }
+
+  .scroll-indicator {
+    display: none;
+  }
+
+  /* Cards e grids: compactar levemente para melhor leitura */
+  .skill-card { min-height: 200px; }
+  .project-card__image { height: 180px; }
+
+  /* Alvos de toque maiores e responsivos */
+  .btn {
+    min-height: 44px;
+    padding: var(--space-3) var(--space-5);
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: rgba(59, 130, 246, 0.2);
+  }
+
+  .skills__filter-btn,
+  .footer__scroll-top,
+  .project-card__link,
+  .header__mobile-toggle {
+    touch-action: manipulation;
+  }
+
+  /* Fundos animados: desativar para reduzir custo de renderização */
+  .galaxy-bg,
+  .galaxy-stars,
+  #bg-particles,
+  #bg-embers {
+    display: none !important;
+    animation: none !important;
+  }
+
+  /* Efeito de desfoque mais leve em camadas translúcidas */
+  :root { --content-backdrop-blur: 6px; }
+}
+
+/* Ajustes para tablets pequenos */
+@media (max-width: 768px) {
+  .hero__image-container {
+    width: 320px;
+    height: 320px;
+  }
+}
