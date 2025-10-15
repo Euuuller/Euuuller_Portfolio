@@ -67,3 +67,21 @@
 [data-theme="dark"] #about .code-snippet {
   border-color: #FFFFFF !important;
 }
+
+/* Code Snippet: cores por tema (texto padrão) */
+[data-theme="light"] .code-snippet__pre {
+  color: #FFFFFF !important; /* modo claro: texto branco (invertido) */
+}
+
+[data-theme="dark"] .code-snippet__pre {
+  color: #000000 !important; /* modo escuro: texto preto (invertido) */
+}
+
+/* Exceção: arquivo machine_learning.py (snippet na seção Sobre) */
+[data-theme="light"] #about .code-snippet__pre {
+  color: #000000 !important; /* modo claro: texto preto (invertido para a exceção) */
+}
+
+[data-theme="dark"] #about .code-snippet__pre {
+  color: #FFFFFF !important; /* modo escuro: texto branco (invertido para a exceção) */
+}
