@@ -6,7 +6,9 @@
          META TAGS E CONFIGURAÇÕES BÁSICAS
          ======================================== -->
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="Portfólio de Euller dos Santos Rodrigues Duarte, Cientista de Dados. Projetos, habilidades e soluções de negócio com Ciência de Dados.">
+    <meta name="theme-color" content="#0b1023">
     <meta name="description"
         content="Portfólio profissional de Cientista de Dados - Template moderno e responsivo desenvolvido com HTML5, CSS3 e JavaScript puro">
     <meta name="keywords"
@@ -40,6 +42,21 @@
     <!-- Preconnect para CDN de ícones (devicons) -->
     <link rel="preconnect" href="https://cdn.jsdelivr.net">
 
+    <!-- JSON-LD: Perfil Pessoal para SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Euller dos Santos Rodrigues Duarte",
+      "jobTitle": "Cientista de Dados",
+      "url": "https://euuuller.github.io/Euuuller_Project/",
+      "image": "https://euuuller.github.io/Euuuller_Project/assets/images/1_Imagem.jpeg",
+      "sameAs": [
+        "https://github.com/Euuuller"
+      ]
+    }
+    </script>
+
     <!-- ========================================
          ESTILOS CUSTOMIZADOS
          ======================================== -->
@@ -55,9 +72,6 @@
 </head>
 
 <body>
-    <!-- Fundo Galáxia -->
-    <div class="galaxy-bg" aria-hidden="true"></div>
-    <div class="galaxy-stars" aria-hidden="true"></div>
     <!-- ========================================
          PRELOADER - TELA DE CARREGAMENTO
          ======================================== -->
@@ -68,6 +82,9 @@
             <div class="preloader__circle"></div>
         </div>
     </div>
+
+    <!-- Link de pulo para conteúdo principal (acessibilidade) -->
+    <a href="#main" class="skip-link">Ir para o conteúdo principal</a>
 
     <!-- ========================================
          CONTEÚDO PRINCIPAL
@@ -90,7 +107,7 @@
                     <nav class="header__nav" id="nav-menu">
                         <ul class="header__nav-list">
                             <li class="header__nav-item">
-                                <a href="#home" class="header__nav-link header__nav-link--active">Início</a>
+                                <a href="#home" class="header__nav-link header__nav-link--active" aria-current="page">Início</a>
                             </li>
                             <li class="header__nav-item">
                                 <a href="#about" class="header__nav-link">Sobre</a>
@@ -195,7 +212,7 @@
                 <nav class="mobile-menu__nav">
                     <ul class="mobile-menu__nav-list">
                         <li class="mobile-menu__nav-item">
-                            <a href="#home" class="mobile-menu__nav-link mobile-menu__nav-link--active">Início</a>
+                            <a href="#home" class="mobile-menu__nav-link mobile-menu__nav-link--active" aria-current="page">Início</a>
                         </li>
                         <li class="mobile-menu__nav-item">
                             <a href="#about" class="mobile-menu__nav-link">Sobre</a>
@@ -247,7 +264,7 @@
         <!-- ========================================
              MAIN - CONTEÚDO PRINCIPAL
              ======================================== -->
-        <main class="main">
+        <main id="main" class="main" role="main">
 
             <!-- ========================================
                  SEÇÃO HOME - HERO
@@ -313,7 +330,7 @@
                                             ./assets/dist/images/1_Imagem-640.webp 640w,
                                             ./assets/dist/images/1_Imagem-800.webp 800w" 
                                         sizes="(max-width: 575px) 280px, (max-width: 768px) 320px, 400px">
-                                    <img src="./assets/dist/images/1_Imagem-800.jpg" alt="Imagem de PerfilFoto de perfil"
+                                    <img src="./assets/dist/images/1_Imagem-800.jpg" alt="Foto de perfil de Euller dos Santos"
                                         class="hero__image-photo" width="400" height="400" decoding="async" fetchpriority="high">
                                 </picture>
                             </div>

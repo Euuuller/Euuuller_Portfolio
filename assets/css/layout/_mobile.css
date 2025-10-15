@@ -70,13 +70,7 @@
   }
 
   /* Fundos animados: desativar para reduzir custo de renderização */
-  .galaxy-bg,
-  .galaxy-stars,
-  #bg-particles,
-  #bg-embers {
-    display: none !important;
-    animation: none !important;
-  }
+  /* Removido: fundos animados não existem mais */
 
   /* Efeito de desfoque mais leve em camadas translúcidas */
   :root { --content-backdrop-blur: 6px; }

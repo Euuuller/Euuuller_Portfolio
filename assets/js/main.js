@@ -16,11 +16,10 @@ import { initPreloader, hidePreloader } from './modules/preloader.js';
 import { bindEvents } from './modules/eventHandlers.js';
 import { initAboutCodeSnippet } from './modules/codeSnippet.js';
 import { initSkillsFilters } from './modules/skillsFilters.js';
-import { initParticles } from './modules/particles.js';
-import { initGalaxyParallax } from './modules/galaxyParallax.js';
-import { initEmbers } from './modules/embers.js';
-import { initEmbersController } from './modules/embersController.js';
+// Módulos visuais pesados serão carregados sob demanda
+// importações dinâmicas são usadas para reduzir custo em dispositivos móveis
 import { initErrorBoundary } from './shared/errorBoundary.js';
+import { prefersReducedMotion } from './shared/a11y.js';
 // Funções de inicialização
 function initializeApp() {
     try {
@@ -31,16 +30,41 @@ function initializeApp() {
         initTheme();
         initMobileMenu();
         initNavigation();
-        initTypingEffect();
+        // Tipagem: adiar inicialização para reduzir custo inicial
+        // Será disparada ao entrar em viewport do herói e/ou em idle
         initScrollAnimations();
         initContactForm();
         initScrollToTop();
         initAboutCodeSnippet();
         initSkillsFilters();
-        initParticles();
-        initEmbers();
-        initEmbersController();
-        initGalaxyParallax();
+
+        // Removidos efeitos visuais de fundo (particles/embers/galaxy)
+        const reducedMotion = prefersReducedMotion();
+
+        // Gating para tipagem (typing effect)
+        if (!reducedMotion) {
+            const hero = document.querySelector('#home');
+            const startTyping = () => {
+                if ('requestIdleCallback' in window) {
+                    window.requestIdleCallback(() => initTypingEffect(), { timeout: 1000 });
+                } else {
+                    setTimeout(() => initTypingEffect(), 500);
+                }
+            };
+
+            if (hero) {
+                const typingObserver = new IntersectionObserver((entries, obs) => {
+                    const entry = entries[0];
+                    if (entry && entry.isIntersecting) {
+                        obs.disconnect();
+                        startTyping();
+                    }
+                }, { root: null, threshold: 0.15 });
+                typingObserver.observe(hero);
+            } else {
+                startTyping();
+            }
+        }
 
         // Vincula eventos globais
         bindEvents({ hidePreloader });

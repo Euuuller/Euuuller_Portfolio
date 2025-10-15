@@ -75,6 +75,7 @@ export function updateActiveNavLink() {
                 // Remove active class de todos os links
                 document.querySelectorAll('.header__nav-link, .mobile-menu__nav-link').forEach(link => {
                     link.classList.remove('header__nav-link--active', 'mobile-menu__nav-link--active');
+                    link.removeAttribute('aria-current');
                 });
                 
                 // Adiciona active class ao link correspondente
@@ -84,6 +85,7 @@ export function updateActiveNavLink() {
                     } else if (link.classList.contains('mobile-menu__nav-link')) {
                         link.classList.add('mobile-menu__nav-link--active');
                     }
+                    link.setAttribute('aria-current', 'page');
                 });
             }
         });

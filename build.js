@@ -54,17 +54,21 @@ async function buildJS() {
   const distDir = path.join(__dirname, 'assets', 'dist');
   if (!fs.existsSync(distDir)) fs.mkdirSync(distDir, { recursive: true });
 
-  const outFile = path.join(distDir, 'main.min.js');
+  // Habilita code splitting para imports dinâmicos
   await esbuild.build({
     entryPoints: [path.join(__dirname, 'assets', 'js', 'main.js')],
-    outfile: outFile,
+    outdir: distDir,
+    entryNames: '[name].min',
+    chunkNames: 'chunks/[name]-[hash]',
+    assetNames: 'assets/[name]-[hash]',
     bundle: true,
     minify: true,
     format: 'esm',
+    splitting: true,
     sourcemap: false,
     target: ['es2019']
   });
-  console.log(`[JS] Wrote ${outFile}`);
+  console.log(`[JS] Wrote ${path.join(distDir, 'main.min.js')} and chunks`);
 }
 
 async function run() {

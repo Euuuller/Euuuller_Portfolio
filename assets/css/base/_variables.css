@@ -90,35 +90,8 @@
     --logo-glow: rgba(255, 122, 26, 0.35);
 
     /* ===============================
-       Fundo Galáxia / Overlays
+       Overlay de conteúdo
        =============================== */
-    --galaxy-saturation: 1.1;
-    --galaxy-contrast: 1.06;
-    --galaxy-brightness: 1.03;
-    --galaxy-nebula-1: rgba(58, 12, 163, 0.32);
-    --galaxy-nebula-2: rgba(0, 118, 255, 0.28);
-    --galaxy-nebula-3: rgba(255, 0, 135, 0.22);
-    --galaxy-nebula-4: rgba(255, 220, 120, 0.16);
-    --galaxy-core-1: rgba(59, 130, 246, 0.22);
-    --galaxy-core-2: rgba(139, 92, 246, 0.18);
-    --stars-color: rgba(0, 0, 0, 0.10);
-    --stars-strong: rgba(0, 0, 0, 0.08);
-    --galaxy-vignette: 0.08;
-    --dust-opacity: 0.08;
-
-    /* Partículas de fogo (Embers) - Tema Claro */
-    --ember-core: rgba(255, 232, 170, 0.85);
-    --ember-ring: rgba(255, 168, 88, 0.85);
-    --ember-glow: rgba(255, 150, 70, 0.45);
-    --ember-density: 0.9; /* 0.0 – 1.0 */
-    --ember-size-min: 1.8px;
-    --ember-size-max: 3.4px;
-    --ember-speed-min: 22; /* px/s */
-    --ember-speed-max: 48; /* px/s */
-    /* Variação de Marca (usa paleta do logo) */
-    --ember-core-brand: rgba(255, 214, 10, 0.90);  /* logo-grad-3 aproximado */
-    --ember-ring-brand: rgba(255, 122, 26, 0.88);  /* logo-grad-2 aproximado */
-    --ember-glow-brand: rgba(255, 122, 26, 0.55);  /* logo-glow reforçado */
 
     /* Overlay de conteúdo para legibilidade sobre o fundo */
     --content-bg: rgba(255, 255, 255, 0.64);
@@ -162,35 +135,8 @@
     --logo-glow: rgba(255, 154, 58, 0.45);
 
     /* ===============================
-       Fundo Galáxia / Overlays (modo escuro)
+       Overlay de conteúdo (modo escuro)
        =============================== */
-    --galaxy-saturation: 1.15;
-    --galaxy-contrast: 1.08;
-    --galaxy-brightness: 0.95;
-    --galaxy-nebula-1: rgba(88, 28, 203, 0.54);
-    --galaxy-nebula-2: rgba(30, 144, 255, 0.44);
-    --galaxy-nebula-3: rgba(255, 64, 160, 0.40);
-    --galaxy-nebula-4: rgba(255, 220, 120, 0.26);
-    --galaxy-core-1: rgba(59, 130, 246, 0.20);
-    --galaxy-core-2: rgba(139, 92, 246, 0.16);
-    --stars-color: rgba(255, 255, 255, 0.10);
-    --stars-strong: rgba(255, 255, 255, 0.07);
-    --galaxy-vignette: 0.18;
-    --dust-opacity: 0.06;
-
-    /* Partículas de fogo (Embers) - Tema Escuro */
-    --ember-core: rgba(255, 240, 190, 0.95);
-    --ember-ring: rgba(255, 176, 96, 0.90);
-    --ember-glow: rgba(255, 168, 84, 0.55);
-    --ember-density: 1.0;
-    --ember-size-min: 2.0px;
-    --ember-size-max: 3.8px;
-    --ember-speed-min: 26; /* px/s */
-    --ember-speed-max: 54; /* px/s */
-    /* Variação de Marca (usa paleta do logo) */
-    --ember-core-brand: rgba(255, 214, 10, 0.95);
-    --ember-ring-brand: rgba(255, 136, 36, 0.92);
-    --ember-glow-brand: rgba(255, 154, 58, 0.60); /* próximo do logo-glow */
 
     /* Overlay de conteúdo para legibilidade */
     --content-bg: rgba(0, 0, 0, 0.58);
